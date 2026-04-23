@@ -58,6 +58,18 @@ pdf_file = genai.upload_file(path=file_path)
 response = model.generate_content([pdf_file, "Extract Title, Author, and a 3-sentence summary."])
 ```
 
+### 🔑 Hướng dẫn lấy Gemini API Key và thiết lập `.env`
+Để sử dụng Gemini API trong phần trích xuất PDF, bạn cần có một API Key:
+1. Truy cập [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Đăng nhập bằng tài khoản Google của bạn.
+3. Nhấn **"Create API key"** để tạo và sao chép mã khóa.
+4. Tạo một file mới có tên là `.env` ở thư mục gốc của dự án.
+5. Thêm dòng sau vào file `.env` (thay thế bằng key thực tế của bạn):
+   ```env
+   GEMINI_API_KEY=your_api_key_here
+   ```
+   *(Lưu ý: Đảm bảo code của bạn có sử dụng `python-dotenv` để load biến môi trường này hoặc bạn có thể set trực tiếp trên terminal)*
+
 ### 🧹 Dọn dẹp dữ liệu hỗn loạn
 - **CSV**: Chú ý các ID trùng lặp và định dạng giá như "$1200" so với "500000".
 - **Transcript**: Loại bỏ dấu thời gian như `[00:05:12]` và tiếng ồn như `[Music]`.
